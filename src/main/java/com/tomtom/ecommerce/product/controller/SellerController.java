@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
-@RequestMapping(value = "/seller")
+@RequestMapping(value = "ecommerce-product-api/seller")
 public class SellerController{
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(SellerController.class);
