@@ -1,5 +1,6 @@
 package com.tomtom.ecommerce.product.builder;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,10 +27,18 @@ public final class ECommerceResponseBuilder {
 				if(object instanceof List) {
 					List<Product> lstproducts = (List<Product>) object;
 					responseStatus.setProducts(lstproducts);
-					if(lstproducts.isEmpty() || lstproducts.size()==0) {
+					if(lstproducts.isEmpty()) {
 						responseStatus.setMessages(Arrays.asList(("No Product found")));
 					}
-				} else if(object instanceof String) {
+				} else if(object instanceof Product) {
+					Product product = (Product) object;
+					List<Product> lstproducts = new ArrayList<>();
+					lstproducts.add(product);
+					responseStatus.setProducts(lstproducts);
+					if(lstproducts.isEmpty()) {
+						responseStatus.setMessages(Arrays.asList(("No Product found")));
+					}
+				}else if(object instanceof String) {
 					LOGGER.debug("Possible exception {}", object);
 					responseStatus.setMessages(Arrays.asList(((String) object))); 
 				}
