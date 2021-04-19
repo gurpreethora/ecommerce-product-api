@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.springframework.validation.Errors;
 
 import com.tomtom.ecommerce.product.model.Product;
-import com.tomtom.ecommerce.product.validator.ECommerceProductValidator;
 
 public class ECommerceProductValidatorTest {
 

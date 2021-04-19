@@ -16,7 +16,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.tomtom.ecommerce.product.controller.SellerController;
 import com.tomtom.ecommerce.product.exception.NotFoundECommerceException;
 import com.tomtom.ecommerce.product.exception.PriceMisMatchECommerceException;
 import com.tomtom.ecommerce.product.mock.ProductMockFactory;

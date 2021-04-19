@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,7 +33,7 @@ import io.swagger.annotations.ApiResponses;
 
 @Api(value = "ecommerce-product-api")
 @RestController
-@RequestMapping(value = "/ecommerce-product-api")
+//@RequestMapping(value = "/ecommerce-product-api")
 public class ECommerceProductController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(ECommerceProductController.class);
@@ -86,7 +85,7 @@ public class ECommerceProductController {
 	@ApiResponses(value = {
 			@ApiResponse(response = Product.class, message = ECommerceConstants.SUCCESS, code = 200)})
 	@GetMapping (value = "/product/{productId}")
-	public ResponseEntity<ResponseStatus> getProducts (@PathVariable @NotBlank @Size(min = 1, max = 50) Integer productId){
+	public ResponseEntity<ResponseStatus> getProduct (@PathVariable @NotBlank @Size(min = 1, max = 50) Integer productId){
 		Product product;
 		try {
 			product =  eCommerceService.getProduct(productId);
