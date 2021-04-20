@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +45,7 @@ public class ECommerceProductController {
 	@ApiOperation( value = "Gets list of products")
 	@ApiResponses(value = {
 			@ApiResponse(response = Product[].class, message = ECommerceConstants.SUCCESS, code = 200)})
-	@GetMapping (value = "/products/")
+	@GetMapping (value = "/products/", produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<ResponseStatus> getProducts (){
 		List<Product>  products;
 		try {
@@ -63,7 +64,7 @@ public class ECommerceProductController {
 	@ApiOperation( value = "Gets list of products")
 	@ApiResponses(value = {
 			@ApiResponse(response = Product[].class, message = ECommerceConstants.SUCCESS, code = 200)})
-	@GetMapping (value = "/filterProducts/")
+	@GetMapping (value = "/filterProducts/" ,produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<ResponseStatus> getFilterProducts( @RequestParam(name = "filter", required=false) Filter filter,
 			@RequestParam(name = "filterBy", required=false) FilterBy filterBy,
 			@RequestParam(name = "maxPrice", required=false) BigDecimal maxPrice){
@@ -84,7 +85,7 @@ public class ECommerceProductController {
 	@ApiOperation( value = "Gets product")
 	@ApiResponses(value = {
 			@ApiResponse(response = Product.class, message = ECommerceConstants.SUCCESS, code = 200)})
-	@GetMapping (value = "/product/{productId}")
+	@GetMapping (value = "/product/{productId}" ,produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<ResponseStatus> getProduct (@PathVariable @NotBlank @Size(min = 1, max = 50) Integer productId){
 		Product product;
 		try {

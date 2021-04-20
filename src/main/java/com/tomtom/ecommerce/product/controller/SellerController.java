@@ -1,6 +1,7 @@
 package com.tomtom.ecommerce.product.controller;
 
 import javax.validation.Valid;
+import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,7 @@ public class SellerController{
 	@ApiOperation( value = "Adds new product or update quantity of existing one")
 	@ApiResponses(value = {
 			@ApiResponse(response = ECommerceConstants.class, message = "Success", code = 201)})
-	@PostMapping("/product")
+	@PostMapping(value = "/product", produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<ResponseStatus> addProduct (@RequestBody @Valid Product product){
 		try {
 			eCommerceService.addProduct(product);
